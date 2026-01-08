@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { ArrowLeft } from "lucide-react";
 import { WistiaPlayer } from "@wistia/wistia-player-react";
 import { supabase } from "@/integrations/supabase/client";
 import { Helmet } from "react-helmet-async";
@@ -46,13 +44,7 @@ const Moments = () => {
         {/* Header */}
         <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/20">
           <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-            <Link
-              to="/"
-              className="flex items-center gap-2 text-foreground/70 hover:text-foreground transition-colors"
-            >
-              <ArrowLeft className="w-5 h-5" />
-              <span className="text-sm font-medium">Back</span>
-            </Link>
+            <div className="w-16" /> {/* Spacer for centering */}
             <h1 className="text-xl sm:text-2xl font-bold tracking-widest text-foreground uppercase">
               Moments
             </h1>
