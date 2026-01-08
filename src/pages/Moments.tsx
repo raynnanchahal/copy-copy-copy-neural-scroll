@@ -44,7 +44,16 @@ const Moments = () => {
         {/* Header */}
         <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/20">
           <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-            <div className="w-16" /> {/* Spacer for centering */}
+            <a 
+              href="https://neuroads.agency" 
+              className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="m12 19-7-7 7-7"/>
+                <path d="M19 12H5"/>
+              </svg>
+              <span className="text-sm font-medium">Back</span>
+            </a>
             <h1 className="text-xl sm:text-2xl font-bold tracking-widest text-foreground uppercase">
               Moments
             </h1>
