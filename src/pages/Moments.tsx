@@ -5,7 +5,7 @@ import { Helmet } from "react-helmet-async";
 
 interface Reel {
   id: string;
-  wistia_id: string;
+  wistia_url: string;
 }
 
 const Moments = () => {
@@ -16,7 +16,7 @@ const Moments = () => {
     const fetchReels = async () => {
       const { data, error } = await supabase
         .from("reels")
-        .select("id, wistia_id")
+        .select("id, wistia_url")
         .eq("is_active", true);
 
       if (error) {
@@ -69,7 +69,7 @@ const Moments = () => {
                     {/* Video Container - 9:16 aspect ratio for reels */}
                     <div className="relative aspect-[9/16] bg-black rounded-2xl overflow-hidden">
                       <WistiaPlayer
-                        mediaId={reel.wistia_id}
+                        mediaId={reel.wistia_url}
                         playerColor="#ffffff"
                         doNotTrack={true}
                         endVideoBehavior="loop"
