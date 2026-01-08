@@ -78,7 +78,7 @@ const Moments = () => {
                     {/* Video Container - 9:16 aspect ratio for reels */}
                     <div className="relative aspect-[9/16] bg-black rounded-2xl overflow-hidden">
                       <WistiaPlayer
-                        mediaId={reel.wistia_url}
+                        mediaId={reel.wistia_url.split('/').pop() || reel.wistia_url}
                         playerColor="#ffffff"
                         doNotTrack={true}
                         endVideoBehavior="loop"
