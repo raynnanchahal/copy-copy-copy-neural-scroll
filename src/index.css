@@ -1,0 +1,584 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Neural Ads Design System - Luxury, Minimalistic, Authoritative */
+
+@layer base {
+  :root {
+    /* Flow Research Collective inspired colors */
+    --background: 0 0% 3%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 5%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 5%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 3%;
+    --secondary: 0 0% 8%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 8%;
+    --muted-foreground: 0 0% 60%;
+    --accent: 186 100% 60%;
+    --accent-foreground: 0 0% 3%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 12%;
+    --input: 0 0% 12%;
+    --ring: 186 100% 60%;
+    --radius: 0.5rem;
+    
+    /* Flow-inspired color palette */
+    --flow-cyan: 186 100% 60%;
+    --flow-blue: 200 100% 70%;
+    --flow-purple: 250 100% 75%;
+    
+    /* Custom gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--flow-cyan)), hsl(var(--flow-blue)));
+    --gradient-neural: linear-gradient(135deg, hsl(186 100% 60% / 0.15), hsl(200 100% 70% / 0.1));
+    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(0 0% 6%));
+    --gradient-brain: radial-gradient(ellipse at center, hsl(186 100% 60% / 0.2) 0%, transparent 70%);
+    
+    /* Shadows */
+    --shadow-glow: 0 0 40px hsl(var(--flow-cyan) / 0.3);
+    --shadow-cyan: 0 0 20px hsl(186 100% 60% / 0.4);
+    --shadow-soft: 0 4px 20px hsl(0 0% 0% / 0.3);
+    
+    /* Typography */
+    --font-heading: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', 'Fira Code', Consolas, 'Courier New', monospace;
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    background: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: var(--font-body);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    line-height: 1.7;
+    letter-spacing: 0.01em;
+    @apply antialiased;
+  }
+
+  /* Typography - Flow Research style */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 400;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.01em;
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
+  
+  .text-gradient {
+    background: var(--gradient-flow);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+/* Flow Research inspired utility classes */
+@layer components {
+  .text-gradient {
+    background: linear-gradient(135deg, hsl(var(--flow-cyan)), hsl(var(--flow-blue)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .brain-hero-bg {
+    background: hsl(var(--background));
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+  }
+
+  .brain-hero-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: 
+      radial-gradient(ellipse 800px 600px at 20% 30%, hsl(var(--flow-cyan) / 0.03) 0%, transparent 50%),
+      radial-gradient(ellipse 600px 800px at 80% 70%, hsl(var(--flow-cyan) / 0.02) 0%, transparent 50%),
+      radial-gradient(circle at 15% 25%, hsl(var(--flow-cyan) / 0.06) 2px, transparent 2px),
+      radial-gradient(circle at 85% 75%, hsl(var(--flow-cyan) / 0.06) 2px, transparent 2px),
+      radial-gradient(circle at 45% 80%, hsl(var(--flow-cyan) / 0.04) 1.5px, transparent 1.5px),
+      radial-gradient(circle at 75% 20%, hsl(var(--flow-cyan) / 0.04) 1.5px, transparent 1.5px),
+      radial-gradient(circle at 60% 50%, hsl(var(--flow-cyan) / 0.05) 1px, transparent 1px),
+      radial-gradient(circle at 30% 60%, hsl(var(--flow-cyan) / 0.05) 1px, transparent 1px),
+      radial-gradient(circle at 50% 40%, hsl(var(--flow-cyan) / 0.03) 1px, transparent 1px),
+      radial-gradient(circle at 25% 85%, hsl(var(--flow-cyan) / 0.04) 1px, transparent 1px);
+    background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
+    animation: neural-flow 15s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 1;
+  }
+  
+  .brain-hero-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+      linear-gradient(90deg, hsl(var(--flow-cyan) / 0.02) 1px, transparent 1px),
+      linear-gradient(0deg, hsl(var(--flow-cyan) / 0.02) 1px, transparent 1px);
+    background-size: 60px 60px;
+    opacity: 0.3;
+    pointer-events: none;
+    z-index: 0;
+  }
+  
+  .flow-card {
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    border-radius: 8px;
+    padding: 2rem;
+    transition: var(--transition-smooth);
+  }
+
+  .flow-card:hover {
+    border-color: hsl(var(--flow-cyan) / 0.3);
+    box-shadow: 0 0 30px hsl(var(--flow-cyan) / 0.1);
+  }
+  
+  .glass-effect {
+    background: hsl(var(--background) / 0.8);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(var(--border));
+  }
+
+  .cyber-glow {
+    box-shadow: 
+      0 0 20px hsl(var(--flow-cyan) / 0.3),
+      inset 0 1px 0 hsl(var(--flow-cyan) / 0.1);
+  }
+  
+  .section-spacing {
+    padding: 4rem 0;
+  }
+  
+  @media (min-width: 640px) {
+    .section-spacing {
+      padding: 6rem 0;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .section-spacing {
+      padding: 8rem 0;
+    }
+  }
+
+  .container-flow {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+  @media (min-width: 640px) {
+    .container-flow {
+      padding: 0 1.5rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .container-flow {
+      padding: 0 2rem;
+    }
+  }
+
+  .text-flow {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: hsl(var(--muted-foreground));
+    max-width: 65ch;
+  }
+
+  .headline-flow {
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 300;
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+  }
+
+  .accent-text {
+    color: hsl(var(--flow-cyan));
+  }
+
+  .neural-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    margin: 4rem 0;
+  }
+
+  .stat-display {
+    text-align: center;
+    padding: 1rem;
+  }
+  
+  @media (min-width: 640px) {
+    .stat-display {
+      padding: 1.5rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .stat-display {
+      padding: 2rem;
+    }
+  }
+  
+  .gradient-border {
+    position: relative;
+    background: var(--gradient-card);
+    border-radius: var(--radius);
+  }
+  
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 2px;
+    background: var(--gradient-luxury);
+    border-radius: inherit;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: subtract;
+  }
+  
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+  }
+  
+  .testimonial-card {
+    @apply p-4 sm:p-6 rounded-xl;
+    background: var(--gradient-card);
+    border: 1px solid hsl(var(--border));
+    transition: var(--transition-luxury);
+  }
+  
+  .testimonial-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-card);
+    border-color: hsl(var(--accent) / 0.5);
+  }
+  
+  .stat-badge {
+    @apply inline-flex items-center px-2 py-1 rounded-full text-xs font-semibold;
+    background: hsl(var(--accent) / 0.1);
+    color: hsl(var(--accent));
+    border: 1px solid hsl(var(--accent) / 0.2);
+  }
+  
+  .card-shadow {
+    box-shadow: var(--shadow-card);
+  }
+  
+  .shadow-cyan {
+    box-shadow: var(--shadow-cyan);
+  }
+  
+  .stat-number {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 200;
+    color: hsl(var(--flow-cyan));
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  .stat-label {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: hsl(var(--muted-foreground));
+  }
+
+  .brain-visual {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 4rem 0;
+  }
+
+  .play-button {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background: hsl(var(--flow-cyan));
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-smooth);
+    z-index: 10;
+  }
+
+  .play-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 40px hsl(var(--flow-cyan) / 0.6);
+  }
+
+  .brain-outline {
+    width: 400px;
+    height: 300px;
+    border: 2px solid hsl(var(--flow-cyan) / 0.3);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    position: relative;
+    animation: neural-pulse 3s ease-in-out infinite;
+  }
+
+  .minimal-button {
+    background: transparent;
+    border: 1px solid hsl(var(--flow-cyan));
+    color: hsl(var(--flow-cyan));
+    padding: 1rem 2rem;
+    border-radius: 4px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.875rem;
+    transition: var(--transition-smooth);
+    cursor: pointer;
+  }
+
+  .minimal-button:hover {
+    background: hsl(var(--flow-cyan));
+    color: hsl(var(--background));
+  }
+  
+  .flow-badge {
+    @apply inline-flex items-center px-6 py-3 rounded-full text-xs font-bold tracking-wider;
+    background: hsl(var(--card));
+    color: hsl(var(--foreground));
+    border: 1px solid hsl(var(--accent) / 0.2);
+    backdrop-filter: blur(20px);
+    box-shadow: var(--shadow-card);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  
+  .flow-badge:hover {
+    border-color: hsl(var(--accent) / 0.4);
+    transform: translateY(-1px);
+    transition: all 0.3s ease;
+  }
+  
+  .section-container {
+    @apply relative py-24 px-4 sm:px-6 lg:px-8;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  
+  .section-glow {
+    position: relative;
+  }
+  
+  .section-glow::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, hsl(47 96% 68% / 0.03) 0%, transparent 70%);
+    pointer-events: none;
+    animation: glow-pulse 8s ease-in-out infinite;
+  }
+  
+  .sticky-cta {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    backdrop-filter: blur(20px);
+    background: hsl(var(--background) / 0.95);
+    border-top: 1px solid hsl(var(--border));
+    transition: var(--transition-smooth);
+  }
+  
+  /* Prose styling for legal pages */
+  .prose {
+    @apply text-foreground/80;
+  }
+  
+  .prose h2 {
+    @apply text-foreground mt-8 mb-4;
+  }
+  
+  .prose h3 {
+    @apply text-foreground mt-6 mb-3;
+  }
+  
+  .prose p {
+    @apply mb-4;
+  }
+  
+  .prose ul {
+    @apply mb-4;
+  }
+  
+  .prose a {
+    @apply text-flow-cyan hover:underline;
+  }
+  
+  .prose strong {
+    @apply text-foreground font-semibold;
+  }
+}
+
+/* Flow Research inspired animations */
+@keyframes brain-pulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+}
+
+@keyframes neural-pulse {
+  0%, 100% {
+    border-color: hsl(var(--flow-cyan) / 0.3);
+    box-shadow: 0 0 20px hsl(var(--flow-cyan) / 0.2);
+  }
+  50% {
+    border-color: hsl(var(--flow-cyan) / 0.6);
+    box-shadow: 0 0 40px hsl(var(--flow-cyan) / 0.4);
+  }
+}
+
+@keyframes text-glow {
+  0%, 100% {
+    text-shadow: 0 0 10px hsl(var(--flow-cyan) / 0.5);
+  }
+  50% {
+    text-shadow: 0 0 20px hsl(var(--flow-cyan) / 0.8);
+  }
+}
+
+@keyframes float-subtle {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes neural-flow {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1) translateY(0);
+  }
+  25% {
+    opacity: 0.6;
+    transform: scale(1.02) translateY(-5px);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.01) translateY(0);
+  }
+  75% {
+    opacity: 0.7;
+    transform: scale(0.99) translateY(5px);
+  }
+}
+
+@keyframes neurons-fire {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  33% {
+    opacity: 0.7;
+    transform: scale(1.03);
+  }
+  66% {
+    opacity: 0.5;
+    transform: scale(0.98);
+  }
+}
