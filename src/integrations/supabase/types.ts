@@ -21,7 +21,7 @@ export type Database = {
           is_active: boolean
           likes_count: number
           updated_at: string
-          wistia_id: string
+          wistia_url: string
         }
         Insert: {
           created_at?: string
@@ -29,7 +29,7 @@ export type Database = {
           is_active?: boolean
           likes_count?: number
           updated_at?: string
-          wistia_id: string
+          wistia_url: string
         }
         Update: {
           created_at?: string
@@ -37,7 +37,7 @@ export type Database = {
           is_active?: boolean
           likes_count?: number
           updated_at?: string
-          wistia_id?: string
+          wistia_url?: string
         }
         Relationships: []
       }
